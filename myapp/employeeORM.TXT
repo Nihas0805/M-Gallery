@@ -1,0 +1,65 @@
+class Employee(models.Model):
+
+     name=models.CharField(max_length=200,null=false,blank=false)
+
+     position=models.CharField(max_length=200)
+
+     office=models.CharField(max_length=200)
+
+     age=models.PositivieIntegerField()
+     
+     start_date=models.DateField()
+
+     salary=models.PositivieIntegerField()
+
+
+    q1>query for adding a new nrecord
+
+    ans>Employee.objects.create(
+                                 id=1,
+                                 name='nihas',
+                                 position='qa',
+                                 age=23,
+                                 start_date=Date(14-06-2024),
+                                 salary=500000,
+                                 office="malta"
+                                 
+         
+                                )
+
+q>query for updating a employee record
+
+ans>Employee.objects.filter(id=1).update(salary=600000,office="amsterdam")
+
+q3>query for filtering employees wiith age and salary
+
+ans>Employee.objects.filter(age=40,salary=50000)
+
+q4>query for deleting employee record
+
+ans>Employee.object.filter(id=1).delete()
+
+q5>employees with salary>25000
+
+ans>qs=Employee.objects.filter(salary__gt=25000)
+
+
+
+
+q9>sort employee wrt salary order by asc
+
+qs=Employee.object.all().order_by("salary")   ##asc
+qs=Employee.object.all().order_by("-salary")   ##desc
+
+
+q10>>employee with highest salary
+
+    #####aggreagate function
+    #Count(),Min(),Max(),Sum()Avg()
+
+
+    max_sal=Employee.objects.all().values("salary").aggreagate(salary=Max("salary"))
+
+Q11>>Group employee wrt office
+
+    office_summary=Employee.objects.all().values("office").annoatete(cnt=Count("office"))

@@ -1,0 +1,64 @@
+=====ORM Query for creating a new object
+
+===>ModelName.objects.create(field1=value,field2=value2,.....)
+
+=========>>>>Movies.objects.create(
+                                     title="arm",
+                                     genre="Action",
+                                     language="malayalam",
+                                     year="2024",
+                                     run_time=150
+                                   )
+
+        ==================================================
+
+
+======ORM Query for fetching all records
+
+===>   qs=ModelName.objects.all()
+
+====>  qs=Movies.objects.all()
+
+============================================================
+
+
+======ORM Query for fetching a specific record
+
+===>   qs=ModelName.objects.get(id=1)
+
+============================================================
+
+
+======ORM Query for filtering record
+
+===>   qs=ModelName.objects.filter(field=value,field=value,...)
+
+===>   qs=ModelName.objects.filter(genre="comedy")
+
+============================================================
+
+
+======ORM Query for update record
+
+===>  ModelName.objects.filter(id=value).update(field=new_value,field=new_value...)
+
+
+============================================================
+
+
+======ORM Query for deleting record
+
+===>  ModelName.objects.filter(id=value).delete()
+
+
+==================================================
+========FIELD LOOKUPS=====
+> __gt
+< __lt
+>= __gte
+<= __lte
+
+====> qs=ModelName.objects.filter(field__gt=value)
+===> qs=Movie.objects.filter(run_time__gt=150)
+
+
